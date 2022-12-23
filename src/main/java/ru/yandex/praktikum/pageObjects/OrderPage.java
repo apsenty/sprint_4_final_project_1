@@ -47,9 +47,9 @@ public class OrderPage extends OrderPageLocators {
     }
 
     // метод для выбора срока аренды на двое суток
-    public void setRentalPeriod(){
+    public void setRentalPeriod(String period){
         driver.findElement(rentalPeriodField).click();
-        driver.findElement(By.xpath(".//div[@class='Dropdown-option' and text()='двое суток']")).click();
+        driver.findElement(By.xpath(".//div[@class='Dropdown-option' and text()='" + period + "']")).click();
     }
 
     // метод выбора цвета самоката в зависимости от того, какой цвет выбран
@@ -89,14 +89,14 @@ public class OrderPage extends OrderPageLocators {
 
     // один большой метод оформления заказа
     public void createOrder(String firstName, String lastName, String address, String metroStation, String phoneNumber,
-                            String date, String color, String comment) {
+                            String date, String period, String color, String comment) {
         setFirstAndLastNames(firstName, lastName);
         setAddress(address);
         setMetroStation(metroStation);
         setPhoneNumber(phoneNumber);
         clickOnNextButton();
         setDate(date);
-        setRentalPeriod();
+        setRentalPeriod(period);
         setScooterColor(color);
         setComment(comment);
         clickOnOrderButton();

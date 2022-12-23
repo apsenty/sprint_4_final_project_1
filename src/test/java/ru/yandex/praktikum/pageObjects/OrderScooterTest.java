@@ -14,11 +14,12 @@ public class OrderScooterTest extends TestBase {
     private final String metroStation;
     private final String phoneNumber;
     private final String date;
+    private final String period;
     private final String color;
     private final String comment;
 
     public OrderScooterTest(String firstName, String lastName, String address,
-                            String metroStation, String phoneNumber, String date, String color,
+                            String metroStation, String phoneNumber, String date, String period, String color,
                             String comment) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -26,6 +27,7 @@ public class OrderScooterTest extends TestBase {
         this.metroStation = metroStation;
         this.phoneNumber = phoneNumber;
         this.date = date;
+        this.period = period;
         this.color = color;
         this.comment = comment;
     }
@@ -33,8 +35,8 @@ public class OrderScooterTest extends TestBase {
     @Parameterized.Parameters
     public static Object[][] getValue() {
         return new  Object[][] {
-                {"Ольга", "Полякова", "Мой дом", "Черкизовская", "+79854908727", "20.12.2022", "black", "Комментарий 1"},
-                {"Александр", "Третьяков", "Новый дом", "ВДНХ", "+79851641647", "21.12.2022", "grey", "Комментарий 2"},
+                {"Ольга", "Полякова", "Мой дом", "Черкизовская", "+79854908727", "20.12.2022", "сутки", "black", "Комментарий 1"},
+                {"Александр", "Третьяков", "Новый дом", "ВДНХ", "+79851641647", "21.12.2022", "трое суток", "grey", "Комментарий 2"},
         };
     }
 
@@ -45,7 +47,7 @@ public class OrderScooterTest extends TestBase {
         objMainPage.acceptCookie();
 
         OrderPage objOrder = new OrderPage(driver);
-        objOrder.createOrder(firstName, lastName, address, metroStation, phoneNumber, date, color, comment);
+        objOrder.createOrder(firstName, lastName, address, metroStation, phoneNumber, date, period, color, comment);
 
         boolean actualResult = objOrder.checkOrderConfirm();
 
@@ -59,7 +61,7 @@ public class OrderScooterTest extends TestBase {
         objMainPage.acceptCookie();
 
         OrderPage objOrder = new OrderPage(driver);
-        objOrder.createOrder(firstName, lastName, address, metroStation, phoneNumber, date, color, comment);
+        objOrder.createOrder(firstName, lastName, address, metroStation, phoneNumber, date, period, color, comment);
 
         boolean actualResult = objOrder.checkOrderConfirm();
 
