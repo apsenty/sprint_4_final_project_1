@@ -43,13 +43,13 @@ public class OrderScooterTest extends TestBase {
     @Test
     public void checkCreateOrderHeadButtonPositive() {
         MainPage objMainPage = new MainPage(driver);
-        objMainPage.clickOnOrderButtonHead();
         objMainPage.acceptCookie();
+        objMainPage.clickOnOrderButtonHead();
 
-        OrderPage objOrder = new OrderPage(driver);
-        objOrder.createOrder(firstName, lastName, address, metroStation, phoneNumber, date, period, color, comment);
+        OrderPage objOrderPage = new OrderPage(driver);
+        objOrderPage.createOrder(firstName, lastName, address, metroStation, phoneNumber, date, period, color, comment);
 
-        boolean actualResult = objOrder.checkOrderConfirm();
+        boolean actualResult = objOrderPage.checkOrderConfirm();
 
         assertTrue("Текст сообщения должен быть Заказ оформлен", actualResult);
     }
@@ -57,13 +57,13 @@ public class OrderScooterTest extends TestBase {
     @Test
     public void checkCreateOrderBodyButtonPositive() {
         MainPage objMainPage = new MainPage(driver);
-        objMainPage.clickOnOrderButtonBody();
         objMainPage.acceptCookie();
+        objMainPage.clickOnOrderButtonBody();
 
-        OrderPage objOrder = new OrderPage(driver);
-        objOrder.createOrder(firstName, lastName, address, metroStation, phoneNumber, date, period, color, comment);
+        OrderPage objOrderPage = new OrderPage(driver);
+        objOrderPage.createOrder(firstName, lastName, address, metroStation, phoneNumber, date, period, color, comment);
 
-        boolean actualResult = objOrder.checkOrderConfirm();
+        boolean actualResult = objOrderPage.checkOrderConfirm();
 
         assertTrue("Текст сообщения должен быть Заказ оформлен", actualResult);
     }

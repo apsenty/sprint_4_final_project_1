@@ -35,4 +35,20 @@ public class OrderPageLocators {
     protected By noButton = By.xpath(".//div[@class='Order_Buttons__1xGrp']/button[text()='Нет']");
     // Подтверждение, что заказ создан
     protected By orderConfirm = By.xpath(".//div[text()='Заказ оформлен']");
+    //ошибка "Введите корректное имя"
+    protected By firstNameError = By.xpath(".//div[text()='Введите корректное имя']");
+    //ошибка "Введите корректную фамилию"
+    protected By lastNameError = By.xpath(".//div[text()='Введите корректную фамилию']");
+    //ошибка "Введите корректный адрес"
+    protected By addressError = By.xpath(".//div[text()='Введите корректный адрес']");
+    //ошибка "Выберите станцию"
+    protected By metroError = By.xpath(".//div[text()='Выберите станцию']");
+    //ошибка "Введите корректный номер"
+    protected By phoneError = By.xpath(".//div[text()='Введите корректный номер']");
+
+    //!!!выдуманный локатор!!! ошибка "Выберите дату"
+    protected By dateError = By.xpath(".//div[text()='Выберите дату']");
+    //!!!выдуманный локатор!!! ошибка "Выберите срок аренды"
+    protected By rentalPeriodError = By.xpath(".//div[text()='Выберите срок аренды']");
+
 }

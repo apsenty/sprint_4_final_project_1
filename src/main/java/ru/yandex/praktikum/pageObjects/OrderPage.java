@@ -12,11 +12,16 @@ public class OrderPage extends OrderPageLocators {
         this.driver = driver;
     }
 
-    //ввод имени и фамилии
-    public void setFirstAndLastNames(String firstName, String lastName){
+    //ввод имени
+    public void setFirstName(String firstName){
         driver.findElement(firstNameField).sendKeys(firstName);
+    }
+
+    // ввод фамилии
+    public void setLastName(String lastName){
         driver.findElement(lastNameField).sendKeys(lastName);
     }
+
     // ввод адреса
     public void setAddress(String address){
         driver.findElement(addressField).sendKeys(address);
@@ -29,6 +34,13 @@ public class OrderPage extends OrderPageLocators {
             new WebDriverWait(driver, 3)
                     .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//div[text()='" + metroStation + "']")));
         driver.findElement(By.xpath(".//div[text()='" + metroStation + "']")).click();
+    }
+
+    // метод для ввода станции метро (только для негативных тестов)
+    public void setWrongMetroStation(String metroStation) {
+        driver.findElement(metroField).click();
+        driver.findElement(metroField).sendKeys(metroStation);
+        driver.findElement(metroField).click();
     }
 
     //ввод номера телефона
@@ -90,7 +102,8 @@ public class OrderPage extends OrderPageLocators {
     // один большой метод оформления заказа
     public void createOrder(String firstName, String lastName, String address, String metroStation, String phoneNumber,
                             String date, String period, String color, String comment) {
-        setFirstAndLastNames(firstName, lastName);
+        setFirstName(firstName);
+        setLastName(lastName);
         setAddress(address);
         setMetroStation(metroStation);
         setPhoneNumber(phoneNumber);
@@ -101,5 +114,34 @@ public class OrderPage extends OrderPageLocators {
         setComment(comment);
         clickOnOrderButton();
         clickOnYes();
+    }
+
+    // проверка высвечивания ошибки "Введите корректное имя"
+    public boolean isFirstNameErrorVisible() {
+        return driver.findElement(firstNameError).isDisplayed();
+    }
+    // проверка высвечивания "Введите корректную фамилию"
+    public boolean isLastNameErrorVisible() {
+        return driver.findElement(lastNameError).isDisplayed();
+    }
+    // проверка высвечивания "Введите корректный адрес"
+    public boolean isAddressErrorVisible() {
+        return driver.findElement(addressError).isDisplayed();
+    }
+    // проверка высвечивания "Выберите станцию"
+    public boolean isMetroStationErrorVisible() {
+        return driver.findElement(metroError).isDisplayed();
+    }
+    // проверка высвечивания "Введите корректный номер"
+    public boolean isPhoneErrorVisible() {
+        return driver.findElement(phoneError).isDisplayed();
+    }
+    // проверка высвечивания ошибки "Выберите дату" !!!локатор выдуманный!!!
+    public boolean isDateErrorVisible() {
+        return driver.findElement(dateError).isDisplayed();
+    }
+    // проверка высвечивания ошибки "Выберите срок аренды" !!!локатор выдуманный!!!
+    public boolean isRentalPeriodErrorVisible() {
+        return driver.findElement(rentalPeriodError).isDisplayed();
     }
 }
