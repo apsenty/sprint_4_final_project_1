@@ -13,8 +13,9 @@ public class GoToYandexTest extends TestBase {
         MainPage objMainPage = new MainPage(driver);
         objMainPage.switchToNewTab();
         String URL = driver.getCurrentUrl();
+        String yandexUrl = objMainPage.getYandexUrl();
 
-        assertEquals("https://dzen.ru/?yredirect=true", URL);
+        assertEquals(yandexUrl, URL);
     }
 
     // клик на лого Яндекса из окна заказа (из шапки страницы)
@@ -24,8 +25,9 @@ public class GoToYandexTest extends TestBase {
         objMainPage.clickOnOrderButtonHead();
         objMainPage.switchToNewTab();
         String URL = driver.getCurrentUrl();
+        String yandexUrl = objMainPage.getYandexUrl();
 
-        assertEquals("https://dzen.ru/?yredirect=true", URL);
+        assertEquals(yandexUrl, URL);
     }
 
     // клик на лого Яндекса из окна заказа (из середины сайта)
@@ -35,7 +37,8 @@ public class GoToYandexTest extends TestBase {
         objMainPage.clickOnOrderButtonBody();
         objMainPage.switchToNewTab();
         String URL = driver.getCurrentUrl();
+        String yandexUrl = objMainPage.getYandexUrl();
 
-        assertEquals("https://dzen.ru/?yredirect=true", URL);
+        assertEquals(yandexUrl, URL);
     }
 }

@@ -51,7 +51,7 @@ public class OrderScooterTest extends TestBase {
 
         boolean actualResult = objOrderPage.checkOrderConfirm();
 
-        assertTrue("Текст сообщения должен быть Заказ оформлен", actualResult);
+        assertTrue("Должно отображаться окно Заказ оформлен", actualResult);
     }
 
     @Test
@@ -65,7 +65,7 @@ public class OrderScooterTest extends TestBase {
 
         boolean actualResult = objOrderPage.checkOrderConfirm();
 
-        assertTrue("Текст сообщения должен быть Заказ оформлен", actualResult);
+        assertTrue("Должно отображаться окно Заказ оформлен", actualResult);
     }
 
 }

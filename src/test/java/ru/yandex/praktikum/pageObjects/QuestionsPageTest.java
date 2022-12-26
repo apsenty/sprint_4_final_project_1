@@ -31,11 +31,9 @@ public class QuestionsPageTest extends TestBase {
     public void compareListOfQuestions() {
         MainPage objMainPage = new MainPage(driver);
         objMainPage.acceptCookie();
+        String answerText = objMainPage.getAnswerText(questionsNumber);
 
-        QuestionsPage objQuestionsPage = new QuestionsPage(driver);
-        String answerText = objQuestionsPage.getAnswerText(questionsNumber);
-
-        assertEquals(objQuestionsPage.expectedAnswersArray[questionsNumber-1], answerText);
+        assertEquals(objMainPage.expectedAnswersArray[questionsNumber-1], answerText);
 
     }
 
