@@ -24,7 +24,7 @@ public class MainPage {
     private By listOfQuestions = By.className("accordion");
 
     //url главной страницы яндекса
-    private final String yandexUrl = "https://dzen.ru/?yredirect=true";
+    private final String YANDEX_URL = "https://dzen.ru/?yredirect=true";
     
     private WebDriver driver;
 
@@ -66,7 +66,7 @@ public class MainPage {
 
     //геттер урла главной страницы Яндекса
     public String getYandexUrl() {
-        return yandexUrl;
+        return YANDEX_URL;
     }
 
     //переключение на открывшуюся вкладку
